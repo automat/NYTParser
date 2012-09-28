@@ -10,6 +10,8 @@
 		AE66EA40161451FF00C3C242 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE66EA3F161451FF00C3C242 /* Foundation.framework */; };
 		AE66EA43161451FF00C3C242 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE66EA42161451FF00C3C242 /* main.m */; };
 		AE66EA47161451FF00C3C242 /* NYTParser.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = AE66EA46161451FF00C3C242 /* NYTParser.1 */; };
+		AE66EA851614586100C3C242 /* NYTArticleSearchQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = AE66EA841614586100C3C242 /* NYTArticleSearchQuery.m */; };
+		AE66EA8B16149EB900C3C242 /* NYTFacet.m in Sources */ = {isa = PBXBuildFile; fileRef = AE66EA8A16149EB900C3C242 /* NYTFacet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +33,12 @@
 		AE66EA42161451FF00C3C242 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AE66EA45161451FF00C3C242 /* NYTParser-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NYTParser-Prefix.pch"; sourceTree = "<group>"; };
 		AE66EA46161451FF00C3C242 /* NYTParser.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = NYTParser.1; sourceTree = "<group>"; };
+		AE66EA831614586100C3C242 /* NYTArticleSearchQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYTArticleSearchQuery.h; sourceTree = "<group>"; };
+		AE66EA841614586100C3C242 /* NYTArticleSearchQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYTArticleSearchQuery.m; sourceTree = "<group>"; };
+		AE66EA87161478F100C3C242 /* NYTDataTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYTDataTypes.h; sourceTree = "<group>"; };
+		AE66EA8816147A7E00C3C242 /* NYTKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYTKeys.h; sourceTree = "<group>"; };
+		AE66EA8916149EB900C3C242 /* NYTFacet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYTFacet.h; sourceTree = "<group>"; };
+		AE66EA8A16149EB900C3C242 /* NYTFacet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYTFacet.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +81,7 @@
 		AE66EA41161451FF00C3C242 /* NYTParser */ = {
 			isa = PBXGroup;
 			children = (
+				AE66EA82161457D800C3C242 /* NYTAPI */,
 				AE66EA42161451FF00C3C242 /* main.m */,
 				AE66EA46161451FF00C3C242 /* NYTParser.1 */,
 				AE66EA44161451FF00C3C242 /* Supporting Files */,
@@ -86,6 +95,19 @@
 				AE66EA45161451FF00C3C242 /* NYTParser-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AE66EA82161457D800C3C242 /* NYTAPI */ = {
+			isa = PBXGroup;
+			children = (
+				AE66EA831614586100C3C242 /* NYTArticleSearchQuery.h */,
+				AE66EA841614586100C3C242 /* NYTArticleSearchQuery.m */,
+				AE66EA87161478F100C3C242 /* NYTDataTypes.h */,
+				AE66EA8816147A7E00C3C242 /* NYTKeys.h */,
+				AE66EA8916149EB900C3C242 /* NYTFacet.h */,
+				AE66EA8A16149EB900C3C242 /* NYTFacet.m */,
+			);
+			name = NYTAPI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +162,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE66EA43161451FF00C3C242 /* main.m in Sources */,
+				AE66EA851614586100C3C242 /* NYTArticleSearchQuery.m in Sources */,
+				AE66EA8B16149EB900C3C242 /* NYTFacet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,8 +226,16 @@
 		AE66EA4B161451FF00C3C242 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../github/local/JTObjectMapping/DerivedData/JTObjectMapping/Build/Products/Debug\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NYTParser/NYTParser-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../github/local/JTObjectMapping/DerivedData/JTObjectMapping/Build/Products/Debug\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -211,8 +243,16 @@
 		AE66EA4C161451FF00C3C242 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../github/local/JTObjectMapping/DerivedData/JTObjectMapping/Build/Products/Debug\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NYTParser/NYTParser-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../github/local/JTObjectMapping/DerivedData/JTObjectMapping/Build/Products/Debug\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
