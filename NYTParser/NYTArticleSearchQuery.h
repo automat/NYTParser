@@ -142,6 +142,8 @@ static NSString* const RETURN_URL = @"url";
 //
 static NSString* const RETURN_WORD_COUNT = @"word_count";
 
+static NSString* const RETURN_DATE = @"date";
+
 
 static NSString* const RANK_NEWEST  = @"newest";
 static NSString* const RANK_OLDEST  = @"oldest";
@@ -179,6 +181,9 @@ static NSString* const RANK_CLOSEST = @"closest";
 
 -(void)setDateBegin:(NSString*)yyyymmdd;
 -(void)setDateEnd:(NSString*)yyyymmdd;
+
+-(void)setDateBeginWithYear:(int)year month:(int)month day:(int)day;
+-(void)setDateEndWithYear:(int)year month:(int)month day:(int)day;
 
 -(void)searchKeywords:(NSString*)firstKeyword,... NS_REQUIRES_NIL_TERMINATION;
 -(void)search: (NSString*)field keywords:(NSString*)firstKeyword,... NS_REQUIRES_NIL_TERMINATION;

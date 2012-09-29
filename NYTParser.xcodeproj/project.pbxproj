@@ -12,6 +12,7 @@
 		AE66EA47161451FF00C3C242 /* NYTParser.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = AE66EA46161451FF00C3C242 /* NYTParser.1 */; };
 		AE66EA851614586100C3C242 /* NYTArticleSearchQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = AE66EA841614586100C3C242 /* NYTArticleSearchQuery.m */; };
 		AE66EA8B16149EB900C3C242 /* NYTFacet.m in Sources */ = {isa = PBXBuildFile; fileRef = AE66EA8A16149EB900C3C242 /* NYTFacet.m */; };
+		AE66EA94161710DE00C3C242 /* NYTResource.m in Sources */ = {isa = PBXBuildFile; fileRef = AE66EA93161710DE00C3C242 /* NYTResource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +40,9 @@
 		AE66EA8816147A7E00C3C242 /* NYTKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYTKeys.h; sourceTree = "<group>"; };
 		AE66EA8916149EB900C3C242 /* NYTFacet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYTFacet.h; sourceTree = "<group>"; };
 		AE66EA8A16149EB900C3C242 /* NYTFacet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYTFacet.m; sourceTree = "<group>"; };
+		AE66EA9116170FF800C3C242 /* NYTAPIRessources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYTAPIRessources.h; sourceTree = "<group>"; };
+		AE66EA92161710DE00C3C242 /* NYTResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYTResource.h; sourceTree = "<group>"; };
+		AE66EA93161710DE00C3C242 /* NYTResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYTResource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,9 @@
 				AE66EA8816147A7E00C3C242 /* NYTKeys.h */,
 				AE66EA8916149EB900C3C242 /* NYTFacet.h */,
 				AE66EA8A16149EB900C3C242 /* NYTFacet.m */,
+				AE66EA9116170FF800C3C242 /* NYTAPIRessources.h */,
+				AE66EA92161710DE00C3C242 /* NYTResource.h */,
+				AE66EA93161710DE00C3C242 /* NYTResource.m */,
 			);
 			name = NYTAPI;
 			sourceTree = "<group>";
@@ -164,6 +171,7 @@
 				AE66EA43161451FF00C3C242 /* main.m in Sources */,
 				AE66EA851614586100C3C242 /* NYTArticleSearchQuery.m in Sources */,
 				AE66EA8B16149EB900C3C242 /* NYTFacet.m in Sources */,
+				AE66EA94161710DE00C3C242 /* NYTResource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

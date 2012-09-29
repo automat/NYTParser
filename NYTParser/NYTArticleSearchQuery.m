@@ -12,7 +12,7 @@
 #import "NYTFacet.h"
 
 static NSString* const QUERY        = @"query=";
-static NSString* const FIELDS       = @"&fields=";
+static NSString* const RETURN_FIELD = @"&fields=";
 static NSString* const RETURN_FACET = @"&facets=";
 static NSString* const API_KEY = @"&api-key=";
 
@@ -112,6 +112,20 @@ static NSString* const FORMAT_EACH_ARG  = @"%@%@%@";
     }
     
     _paramEndDate = yyyymmdd;
+}
+
+-(void)setDateBeginWithYear:(int)year month:(int)month day:(int)day
+{
+    [self setDateBegin:[@"" stringByAppendingFormat:@"%d%@%@",year,
+                       [@"" stringByAppendingFormat:((month > 9) ? @"%d" : @"0%d"),month],
+                       [@"" stringByAppendingFormat:((day > 9)   ? @"%d" : @"0%d"),day]]];
+}
+
+-(void)setDateEndWithYear:(int)year month:(int)month day:(int)day
+{
+    [self setDateBegin:[@"" stringByAppendingFormat:@"%d%@%@",year,
+                       [@"" stringByAppendingFormat:((month > 9) ? @"%d" : @"0%d"),month],
+                       [@"" stringByAppendingFormat:((day > 9)   ? @"%d" : @"0%d"),day]]];
 }
 
 #pragma mark ---- Search Keywords ----
@@ -225,7 +239,17 @@ static NSString* const FORMAT_EACH_ARG  = @"%@%@%@";
         [NSException raise:RAISE_INVALID_RETURN_FIELD format:FORMAT_INVALID_RETURN_FIELD,firstReturnField];
     }
     
+    va_list args;
+    va_start(args, firstReturnField);
     
+    [self setString:_queryReturnFields
+             format:firstReturnField
+          arguments:args
+             prefix:PREFIX_EMPTY
+          seperator:SEPERATOR_COMMA
+     firstSeperator:nil];
+    
+    va_end(args);
     _returnFieldsSet = YES;
 }
 
@@ -259,7 +283,8 @@ static NSString* const FORMAT_EACH_ARG  = @"%@%@%@";
     BOOL formatIsFacet       = [firstArg isMemberOfClass:[NYTFacet class]];
     BOOL formatIsReturnFacet = formatIsFacet && [firstArg isReturnFacet];
     
-    NSString* first = [self ANDStringFromString:formatIsFacet ? [(NYTFacet*)firstArg string] : firstArg];
+    NSString* first = formatIsFacet ?  [(NYTFacet*)firstArg string] : [self ANDStringFromString:firstArg];
+    
     [string appendFormat:FORMAT_FIRST_ARG,prefix ? (firstSeperator ? [firstSeperator stringByAppendingString:prefix] : prefix) :
      (firstSeperator ? [firstSeperator stringByAppendingString:PREFIX_EMPTY] : PREFIX_EMPTY)
      ,first];
@@ -389,11 +414,11 @@ static NSString* const FORMAT_EACH_ARG  = @"%@%@%@";
                         EMPTY_STRING;
     
     NSString* rfacets  = _queryReturnFacets.length > 0 ?
-                        [@"" stringByAppendingFormat:@"%@%@", RETURN_FACET,   _queryReturnFacets] :
+                        [@"" stringByAppendingFormat:@"%@%@", RETURN_FACET,_queryReturnFacets] :
                         EMPTY_STRING;
     
     NSString* rfields  = _queryReturnFields.length > 0 ?
-                        [@"" stringByAppendingFormat:@"%@%@", SEPERATOR_COMMA,_queryReturnFields] :
+                        [@"" stringByAppendingFormat:@"%@%@", RETURN_FIELD,_queryReturnFields] :
                         EMPTY_STRING;
     
     NSString* pBDate   = _paramBeginDate.length > 0 ?

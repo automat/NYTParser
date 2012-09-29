@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "NYTArticleSearchQuery.h"
 #import "NYTFacet.h"
+#import "NYTResource.h"
 
 
 int main(int argc, const char * argv[])
@@ -17,8 +18,25 @@ int main(int argc, const char * argv[])
     @autoreleasepool {
        
         NYTArticleSearchQuery* query = [NYTArticleSearchQuery query];
-        [query search:FIELD_TEXT keywords:@"germany",@"angela merkel",@"obama", nil];
-        [query excludeKeywords:@"New York", nil];
+        //[query search:FIELD_TEXT keywords:@"germany",@"angela merkel",@"obama", nil];
+        //[query excludeKeywords:@"New York", nil];
+        
+        //Test 1
+        /*
+        [query search:FIELD_TITLE keywords:@"election", nil];
+        [query search:FIELD_ABSTRACT keywords:@"turnout", nil];
+        [query addReturnFields:RETURN_TITLE,RETURN_LEAD_PARAGRAPH,RETURN_URL,RETURN_DATE, nil];
+        [query setDateBegin:@"20081001"];
+        [query setDateEnd:@"20081201"];
+         */
+        
+        [NYTResource listAllCountries];
+        
+        
+        [query addFacetes:[NYTFacet facetWithType:FACET_GEO query:@"United States"], nil];
+        [query addReturnFields:RETURN_DES, nil];
+        
+        
         
         NSString* requestURL = [query requestURL];
         NSLog(@"%@",requestURL);
